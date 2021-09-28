@@ -1,5 +1,5 @@
 import axios from "axios";
-import {SET_CURRENT_USER,ERRORS, SUCCESSFUL_REGISTER, FAILURE_REGISTER} from "./types"
+import {SET_CURRENT_USER,ERRORS, SUCCESSFUL_REGISTER, FAILURE_REGISTER,ERRORS} from "./types"
 
 export const setCurrentUser = user =>{
     return{
