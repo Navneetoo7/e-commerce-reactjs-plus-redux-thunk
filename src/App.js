@@ -1,13 +1,8 @@
 import "./App.css";
 import { Provider } from "react-redux";
 import store from "./store";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Switch,
-} from "react-router-dom";
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "antd/dist/antd.css";
 //importing general components
 import NavBar from "./components/general/NavBar";
 //landing components
@@ -19,12 +14,14 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <div>
-          <NavBar />
-          {/* <Backgroud /> */}
-          <Route exact path="/" component={Backgroud} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
+        <NavBar />
+        {/* <Backgroud /> */}
+        <div className="App">
+          <Routes>
+            <Route exact path="/" element={<Backgroud />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
         </div>
       </Router>
     </Provider>

@@ -4,7 +4,6 @@ import {
   ERRORS,
   SUCCESSFUL_REGISTER,
   FAILURE_REGISTER,
-  ERRORS,
   AUTH_ERROR,
 } from "./types";
 import { getServer } from "../util";
@@ -12,7 +11,7 @@ import setAuthToken from "../util/setAuthToken";
 
 //set user
 export const setCurrentUser = (user) => async (dispatch) => {
-  if (loacalStorage.token) {
+  if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
   try {
@@ -32,11 +31,11 @@ export const setCurrentUser = (user) => async (dispatch) => {
 export const register = (userData) => async (dispatch) => {
   const config = {
     headers: {
-      "Content-type": "application/json",
+      "Content-Type": "application/json",
     },
   };
   try {
-    const res = await axios.post(`${getServer}/api/user`, userData, config);
+    const res = await axios.post(`${getServer()}/api/users`, userData, config);
     dispatch({
       type: SUCCESSFUL_REGISTER,
       payload: res.data,
